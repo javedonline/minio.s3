@@ -41,7 +41,7 @@ function(verb = "GET",
          check_region = TRUE,
          url_style = c("path", "virtual"),
          base_url = get_base_url(),
-         verbose = getOption("verbose", FALSE),
+         verbose = T,#getOption("verbose", FALSE),
          region = NULL, 
          key = NULL, 
          secret = NULL, 
@@ -79,8 +79,7 @@ function(verb = "GET",
     url <- setup_s3_url(bucketname, region, path, accelerate, 
                         url_style = url_style, base_url = base_url, 
                         verbose = verbose, use_https = use_https)
-    print(url)
-    p <- parse_url(url)
+
     print(p)
     action <- if (p$path == "") "/" else paste0("/", p$path)
     canonical_headers <- c(list(host = paste0(p$hostname, ":", p$port),
