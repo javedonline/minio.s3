@@ -80,7 +80,7 @@ function(verb = "GET",
                         url_style = url_style, base_url = base_url, 
                         verbose = verbose, use_https = use_https)
 
-    print(p)
+
     action <- if (p$path == "") "/" else paste0("/", p$path)
     canonical_headers <- c(list(host = paste0(p$hostname, ":", p$port),
                                 `x-amz-date` = d_timestamp), headers)
@@ -160,7 +160,9 @@ function(verb = "GET",
     } else if (verb == "POST") {
         r <- POST(url, H, query = query, ...)
     } else if (verb == "PUT") {
-
+        print(url)
+        print(query)
+        print(H)
         if (is.character(request_body) && request_body == "") {
             r <- PUT(url, H, query = query, ...)
         } else if (is.character(request_body) && file.exists(request_body)) {
