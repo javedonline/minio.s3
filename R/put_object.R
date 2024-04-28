@@ -58,7 +58,8 @@ function(file,
          acl = c("private", "public-read", "public-read-write", 
                  "aws-exec-read", "authenticated-read", 
                  "bucket-owner-read", "bucket-owner-full-control"),
-         headers = list(), 
+         headers = list(),
+
          ...) {
     if (missing(object) && is.character(file)) {
         object <- basename(file)
@@ -69,22 +70,22 @@ function(file,
         object <- get_objectkey(object)
     }
          
-    if (missing(base_url)) {
-        base_url = Sys.getenv("AWS_S3_ENDPOINT")
-    } 
-
-
-    if (missing(region)) {
-        region = Sys.getenv("AWS_DEFAULT_REGION")
-    } 
-
-    if (missing(key)) {
-        key = Sys.getenv("AWS_ACCESS_KEY_ID")
-    } 
-
-    if (missing(secret)) {
-        secret = Sys.getenv("AWS_SECRET_ACCESS_KEY")
-    }      
+    # if (missing(base_url)) {
+    #     base_url = Sys.getenv("AWS_S3_ENDPOINT")
+    # }
+    #
+    #
+    # if (missing(region)) {
+    #     region = Sys.getenv("AWS_DEFAULT_REGION")
+    # }
+    #
+    # if (missing(key)) {
+    #     key = Sys.getenv("AWS_ACCESS_KEY_ID")
+    # }
+    #
+    # if (missing(secret)) {
+    #     secret = Sys.getenv("AWS_SECRET_ACCESS_KEY")
+    # }
          
          
          
@@ -156,13 +157,13 @@ function(file,
                     parse_response = TRUE, 
                     check_region = FALSE,
                     url_style = c("path", "virtual"),
-                    base_url = base_url,
+                    base_url = Sys.getenv("AWS_S3_ENDPOINT"),
                     verbose = getOption("verbose", FALSE),
-                    region = region, 
-                    key = key, 
-                    secret = secret, 
+                    region = Sys.getenv("AWS_DEFAULT_REGION"),
+                    key = Sys.getenv("AWS_ACCESS_KEY_ID"),
+                    secret = Sys.getenv("AWS_SECRET_ACCESS_KEY"),
                     session_token = NULL,
-                    use_https = FALSE)
+                    use_https = use_https)
         return(TRUE)
     }
 }

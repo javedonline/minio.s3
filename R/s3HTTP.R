@@ -80,6 +80,7 @@ function(verb = "GET",
                         url_style = url_style, base_url = base_url, 
                         verbose = verbose, use_https = use_https)
     p <- parse_url(url)
+
     action <- if (p$path == "") "/" else paste0("/", p$path)
     canonical_headers <- c(list(host = paste0(p$hostname, ":", p$port),
                                 `x-amz-date` = d_timestamp), headers)

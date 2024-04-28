@@ -129,3 +129,20 @@ flatten_list <- function(x) {
         return(x)
     }
 }
+locate_credentials<-function(key, secret, session_token, region, verbose)
+{
+if (missing(key))
+{
+    key=get_objectkey.s3_object()
+
+}
+    if(missing(secret))
+    {
+
+    }
+    if(missing(region))
+    {
+        region=get_region()
+    }
+
+}

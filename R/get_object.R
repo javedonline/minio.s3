@@ -42,7 +42,8 @@
 #' @references \href{http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html}{API Document: HEAD Object}
 #' @seealso \code{\link{get_bucket}}, \code{\link{put_object}}, \code{\link{delete_object}}
 #' @export
-get_object <- 
+
+get_object <-
 function(object, 
          bucket, 
          use_https,
@@ -205,3 +206,5 @@ get_torrent <- function(object, bucket, use_https,...) {
                 use_https = use_https)
     return(content(r, "raw"))
 }
+
+
