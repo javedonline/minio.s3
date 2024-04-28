@@ -53,9 +53,11 @@
 put_object <- 
 function(file, 
          object, 
-         bucket, 
-         multipart = FALSE, 
-         acl = c("private", "public-read", "public-read-write", 
+         bucket,
+         use_https=FALSE,
+
+         multipart = FALSE,
+         acl = c("private", "public-read", "public-read-write",
                  "aws-exec-read", "authenticated-read", 
                  "bucket-owner-read", "bucket-owner-full-control"),
          headers = list(),
