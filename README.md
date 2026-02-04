@@ -101,3 +101,5 @@ put_object(file = "mtcars.Rdata", object = "mtcars2.Rdata", bucket = "my_bucket"
 ```
 
 
+#Authors
+--
